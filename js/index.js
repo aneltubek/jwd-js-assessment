@@ -122,7 +122,7 @@ function myTimer() {
 
       
       //add score after click to submit button
-      document.getElementById('score').innerHTML= "Score: " + score;
+      document.getElementById('score').innerHTML= "Score: " + score + '/' + quizArray.length;
     });
     return score;
     

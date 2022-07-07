@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'Which planet is closest to the sun',
+      o: ['Earth', 'Mercury', 'Venus,', 'Jupiter'],
+      a: 1,
+    },
+    {
+      q: 'What is the measure of mass in USA',
+      o: ['stone', 'kg', 'lbs', 'cm'],
+      a: 2,
+    },
   ];
 
   // function to Display the quiz questions and answers from the object

@@ -24,6 +24,20 @@ window.addEventListener('DOMContentLoaded', () => {
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
+
+//Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
+    let sec = 5;
+let timer = setInterval(myTimer, 1000);
+
+function myTimer() {
+    document.getElementById('time').innerHTML = sec + " sec";
+    sec--;
+    if (sec == -1) {
+        clearInterval(timer);
+        alert(`Time out!! Your score is: ${calculateScore()}`); // once timer reaches 0 it shows the score
+    }
+  }
+
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -75,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const btn = document.getElementById('btnSubmit');
-  btnSubmit.addEventListener('click', function(event){
+  btn.addEventListener('click', function(event){
     const totalScore = calculateScore(this);
     console.log('Button Clicked');
     console.log('Total Score = ' + totalScore);
@@ -125,15 +139,5 @@ const reset = document.getElementById('btnReset');
 reset.addEventListener('click',function(){location.reload()});
 
 
-//Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
-let sec = 60;
-let timer = setInterval(myTimer, 1000);
 
-function myTimer() {
-    document.getElementById('time').innerHTML = sec + " sec";
-    sec--;
-    if (sec == -1) {
-        clearInterval(timer);
-        alert("Time out!! :(");
-    }
-}
+

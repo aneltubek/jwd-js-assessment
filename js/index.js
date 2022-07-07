@@ -7,7 +7,7 @@
   The tasks you need to do are below.
 
     TASKS TODO:
-      1. Calculate the score as the total of the number of correct answers
+      //1. Calculate the score as the total of the number of correct answers
 
       //2. Add an Event listener for the submit button, which will display the score and highlight 
          the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you.
@@ -115,4 +115,6 @@ window.addEventListener('DOMContentLoaded', () => {
   displayQuiz();
 });
 
-
+//Reload the page when the reset button is clicked (hint: search window.location)
+const reset = document.getElementById('btnReset');
+reset.addEventListener('click',function(){location.reload()});

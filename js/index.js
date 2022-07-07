@@ -14,7 +14,7 @@
 
       //3. Add 2 more questions to the app (each question must have 4 options).
 
-      4. Reload the page when the reset button is clicked (hint: search window.location)
+      //4. Reload the page when the reset button is clicked (hint: search window.location)
 
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
@@ -104,6 +104,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         console.log('Score In Loop ', score);
       }
+
+
+      
       //add score after click to submit button
       document.getElementById('score').innerHTML= "Score: " + score;
     });
@@ -115,6 +118,22 @@ window.addEventListener('DOMContentLoaded', () => {
   displayQuiz();
 });
 
+
+
 //Reload the page when the reset button is clicked (hint: search window.location)
 const reset = document.getElementById('btnReset');
 reset.addEventListener('click',function(){location.reload()});
+
+
+//Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
+let sec = 60;
+let timer = setInterval(myTimer, 1000);
+
+function myTimer() {
+    document.getElementById('time').innerHTML = sec + " sec";
+    sec--;
+    if (sec == -1) {
+        clearInterval(timer);
+        alert("Time out!! :(");
+    }
+}

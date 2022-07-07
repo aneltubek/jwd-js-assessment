@@ -12,7 +12,7 @@
       2. Add an Event listener for the submit button, which will display the score and highlight 
          the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you.
 
-      3. Add 2 more questions to the app (each question must have 4 options).
+      //3. Add 2 more questions to the app (each question must have 4 options).
 
       4. Reload the page when the reset button is clicked (hint: search window.location)
 
@@ -83,16 +83,21 @@ window.addEventListener('DOMContentLoaded', () => {
         let r = `radio_${index}_${i}`;
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
-
-        if (quizItem.a == i) {
-          //change background color of li element here
-        }
-
         if (radioElement.checked) {
-          // code for task 1 goes here
+          if (quizItem.a == i) {
+            score++;
+            liElement.style.backgroundColor = 'green';
+          } else {
+            liElement.style.backgroundColor = 'red';
+          }
+        } else if (quizItem.a == i) {
+          liElement.style.backgroundColor = 'yellow';
         }
+
+        console.log('Score In Loop ', score);
       }
     });
+    return score;
   };
 
   // call the displayQuiz function

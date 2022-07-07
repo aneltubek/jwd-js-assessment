@@ -9,7 +9,7 @@
     TASKS TODO:
       1. Calculate the score as the total of the number of correct answers
 
-      2. Add an Event listener for the submit button, which will display the score and highlight 
+      //2. Add an Event listener for the submit button, which will display the score and highlight 
          the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you.
 
       //3. Add 2 more questions to the app (each question must have 4 options).
@@ -73,6 +73,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+
+  const btn = document.getElementById('btnSubmit');
+  btnSubmit.addEventListener('click', function(event){
+    const totalScore = calculateScore(this);
+    console.log('Button Clicked');
+    console.log('Total Score = ' + totalScore);
+  })
+
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
@@ -85,21 +93,26 @@ window.addEventListener('DOMContentLoaded', () => {
         radioElement = document.querySelector('#' + r);
         if (radioElement.checked) {
           if (quizItem.a == i) {
-            score++;
+            score = score + 1;
             liElement.style.backgroundColor = 'green';
           } else {
             liElement.style.backgroundColor = 'red';
           }
-        } else if (quizItem.a == i) {
+        } else if(quizItem.a == i) {
           liElement.style.backgroundColor = 'yellow';
         }
 
         console.log('Score In Loop ', score);
       }
+      //add score after click to submit button
+      document.getElementById('score').innerHTML= "Score: " + score;
     });
     return score;
+    
   };
-
+ 
   // call the displayQuiz function
   displayQuiz();
 });
+
+
